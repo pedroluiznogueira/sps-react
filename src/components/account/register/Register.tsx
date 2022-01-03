@@ -29,7 +29,9 @@ class RegisterComponent extends React.Component {
                             </NavLink>
                         </small>
                     </div>
-                    <button type="submit" className="btn btn-primary">Criar conta</button>
+                    <NavLink className="btn" to='/login'>
+                        Criar Conta
+                    </NavLink>
                     <div id="loader"></div>
                     <div id="feedback"></div>
                 </form>

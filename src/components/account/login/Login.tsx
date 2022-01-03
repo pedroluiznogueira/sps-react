@@ -29,7 +29,9 @@ class LoginComponent extends React.Component {
                             </NavLink>
                         </small>
                     </div>
-                    <button type="submit" className="btn btn-primary">Entrar</button>
+                    <NavLink onClick={this.handleSubmit} className="btn" to='/app'>
+                        Entrar
+                    </NavLink>
                     <div id="loader"></div>
                     <div id="feedback"></div>
                 </form>
