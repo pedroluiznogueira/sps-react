@@ -1,10 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/layout/navbar/Navbar';
 
 function App() {
   return (
-    <h1>Cleaning up...</h1>
+    <>
+      <Navbar />
+    </>
   );
 }
 
