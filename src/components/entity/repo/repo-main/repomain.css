@@ -1,0 +1,30 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* main section  */
+
+.main {
+    width: 100%;
+    margin: 40px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* bottom */
+
+.bottom {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
