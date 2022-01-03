@@ -7,6 +7,8 @@ import LoginComponent from './components/account/login/Login';
 import RepoComponent from './components/entity/RepoComponent';
 import { BrowserRouter, Navigate, Outlet, Route, Routes } from 'react-router-dom';
 import { isAuth } from './components/account/auth/AuthComponent';
+import RegisterComponent from './components/account/register/Register';
+
 
 ReactDOM.render(
   <>
@@ -16,6 +18,7 @@ ReactDOM.render(
           <Route path="/app" element={<App />} />
         </Route>
         <Route path="/login" element={<LoginComponent />} />
+        <Route path="/register" element={<RegisterComponent />} />
       </Routes>
     </BrowserRouter>
   </>,

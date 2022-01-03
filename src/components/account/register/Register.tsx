@@ -1,22 +1,22 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Navbar from "../../layout/navbar/Navbar";
-import './login.css';
+import './register.css';
 
-class LoginComponent extends React.Component {
-
-    public handleSubmit(): void {
-        window.sessionStorage.setItem('mockedToken', 'mockedToken');
-    }
+class RegisterComponent extends React.Component {
 
     render() {
         return(
             <div className="container">
-                <form className="form">
-                    <h3>Login</h3>
+                <form className="register-form">
+                    <h3>Cadastro</h3>
+                    <div className="form-group">
+                        <label htmlFor="exampleInputNome">Nome</label>
+                        <input type="text" className="form-control" id="exampleInputNome" aria-describedby="emailHelp" placeholder="Name" name="name"></input>
+                    </div>
                     <div className="form-group">
                     <label htmlFor="exampleInputEmail1">E-mail</label>
-                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email"></input>
+                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" name="email"></input>
                     </div>
                     <div className="form-group">
                     <label htmlFor="exampleInputPassword1">Senha</label>
@@ -24,12 +24,12 @@ class LoginComponent extends React.Component {
                     </div>
                     <div className="form-group-question">
                         <small>
-                            <NavLink className="question-text" to='/register' style={{ textDecoration: 'none' }}>
-                                Ainda não tem uma conta ?
+                            <NavLink className="question-text" to='/login' style={{ textDecoration: 'none' }}>
+                                Já tem uma conta ?
                             </NavLink>
                         </small>
                     </div>
-                    <button type="submit" className="btn btn-primary">Entrar</button>
+                    <button type="submit" className="btn btn-primary">Criar conta</button>
                     <div id="loader"></div>
                     <div id="feedback"></div>
                 </form>
@@ -38,8 +38,4 @@ class LoginComponent extends React.Component {
     }
 }
 
-export default LoginComponent;
-
-function handleSubmit() {
-    throw new Error("Function not implemented.");
-}
+export default RegisterComponent;
