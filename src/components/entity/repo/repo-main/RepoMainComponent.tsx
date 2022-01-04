@@ -1,7 +1,8 @@
 import React from "react";
+import NavbarComponent from "../../../layout/navbar/Navbar";
 import RepoAddComponent from "../repo-add/RepoAddComponent";
 import RepoListComponent from "../repo-list/RepoListComponent";
-import RepoSearchComponent from "../repo-search/RepoSearchComponent";
+import RepoFormComponent from "../repo-search/RepoFormComponent";
 import './repomain.css';
 
 class RepoMainComponent extends React.Component {
@@ -10,11 +11,11 @@ class RepoMainComponent extends React.Component {
         return(
             <div className="container">
                 <section className="main">
-                    <RepoSearchComponent />
+                    <RepoFormComponent goal={'Pesquisar'} />
                     <RepoListComponent />
                 </section>
                 <section className="bottom">
-                    <RepoAddComponent />
+                <RepoFormComponent goal={'Adicionar'}/>
                 </section>
             </div>
         );

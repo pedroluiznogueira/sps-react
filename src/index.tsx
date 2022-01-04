@@ -8,6 +8,7 @@ import RepoComponent from './components/entity/repo/repo-main/RepoMainComponent'
 import { BrowserRouter, Navigate, Outlet, Route, Routes } from 'react-router-dom';
 import { isAuth } from './components/account/auth/AuthComponent';
 import RegisterComponent from './components/account/register/Register';
+import NavbarComponent from './components/layout/navbar/Navbar';
 
 
 ReactDOM.render(

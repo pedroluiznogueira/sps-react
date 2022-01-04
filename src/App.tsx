@@ -6,10 +6,8 @@ import RepoComponent from './components/entity/repo/repo-main/RepoMainComponent'
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <RepoComponent />
-    </>
+    
+      <><Navbar /><RepoComponent /></>
   );
 }
 
