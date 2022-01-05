@@ -5,6 +5,8 @@ const RepoContext = createContext();
 
 export const RepoProvider = ( {children} ) => {
     const [repos, setRepos] = useState([]);
+    const [found, setFound] = useState(false);
+    const [foundRepo, setFoundRepo] = useState([]);
 
     useEffect(() => {
         fetchRepos();
@@ -32,10 +34,21 @@ export const RepoProvider = ( {children} ) => {
         setRepos([data, ...repos]);
     }
 
+    const findRepo = async (repoName) => {
+        const response = await fetch(`/repos?name=${repoName}`);
+        const data = await response.json();
+        console.log(data);
+        setFound(true);
+        setFoundRepo(data);
+    }
+
     return(
         <RepoContext.Provider value={{
             repos: repos,
-            addRepo: addRepo
+            foundRepo: foundRepo,
+            found: found,
+            addRepo: addRepo,
+            findRepo: findRepo
         }}>
             {children}
         </RepoContext.Provider>

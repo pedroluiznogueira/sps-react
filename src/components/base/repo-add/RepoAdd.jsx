@@ -9,7 +9,7 @@ function RepoAdd() {
     const handleSubmit = (e) => {
         e.preventDefault();
         addRepo(text);
-        
+
         setText('');
     }
 
@@ -22,7 +22,7 @@ function RepoAdd() {
             className="d-flex justify-content-center"
             onSubmit={handleSubmit}
             >
-            <span className="text">Pesquisar</span>
+            <span className="text">Adicionar</span>
             <input
                 onChange={handleChange}
                 id="search"
@@ -30,7 +30,7 @@ function RepoAdd() {
                 placeholder="Encontre um repositório..."
                 value={text} 
              />
-            <button className="new-repo-button">Pesquisar</button>
+            <button className="new-repo-button">Adicionar</button>
         </form>
     )
 }
