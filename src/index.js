@@ -1,14 +1,10 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-import LoginComponent from './components/account/login/Login';
-import RepoComponent from './components/entity/repo/RepoComponent';
+import LoginComponent from './components/auth/login/Login';
 import { BrowserRouter, Navigate, Outlet, Route, Routes } from 'react-router-dom';
-import { isAuth } from './components/account/auth/AuthComponent';
-import RegisterComponent from './components/account/register/Register';
-import NavbarComponent from './components/layout/navbar/Navbar';
+import { isAuth } from './components/auth/token/Token';
+import RegisterComponent from './components/auth/register/Register';
 
 
 ReactDOM.render(

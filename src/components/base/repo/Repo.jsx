@@ -1,5 +1,5 @@
 import React from "react";
-import './repo.css';
+import './Repo.css';
 
 function RepoComponent() {
 
