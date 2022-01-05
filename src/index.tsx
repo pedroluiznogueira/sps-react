@@ -4,10 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import LoginComponent from './components/account/login/Login';
-import RepoComponent from './components/entity/RepoComponent';
+import RepoComponent from './components/entity/repo/RepoComponent';
 import { BrowserRouter, Navigate, Outlet, Route, Routes } from 'react-router-dom';
 import { isAuth } from './components/account/auth/AuthComponent';
 import RegisterComponent from './components/account/register/Register';
+import NavbarComponent from './components/layout/navbar/Navbar';
 
 
 ReactDOM.render(
