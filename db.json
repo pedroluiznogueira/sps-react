@@ -1,0 +1,34 @@
+{
+  "repos": [
+    {
+      "name": "udeyou",
+      "owner": "pedroluiznogueira",
+      "url": "https://github.com/pedroluiznogueira/udeyou",
+      "id": 1
+    },
+    {
+      "name": "xmb",
+      "owner": "pedroluiznogueira",
+      "url": "https://github.com/pedroluiznogueira/xmb",
+      "id": 2
+    },
+    {
+      "name": "sps-react",
+      "owner": "pedroluiznogueira",
+      "url": "https://github.com/pedroluiznogueira/sps-react",
+      "id": 3
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "pedro",
+      "email": "pedro@pedro.com"
+    },
+    {
+      "id": 2,
+      "name": "luiz",
+      "email": "luiz@luiz.com"
+    }
+  ]
+}
