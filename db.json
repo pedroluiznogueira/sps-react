@@ -1,0 +1,28 @@
+{
+    "repo_table": [
+        {
+            "id": 1,
+            "name": "udeyou",
+            "owner": "pedroluiznogueira",
+            "url": "mocked-url"
+        },
+        {
+            "id": 2,
+            "name": "exchange-office",
+            "owner": "pedroluiznogueira",
+            "url": "another-mocked-url"
+        }
+    ],
+    "user_table": [
+        {
+            "id": 1,
+            "name": "pedro",
+            "email": "pedro@pedro.com"
+        },
+        {
+            "id": 2,
+            "name": "luiz",
+            "email": "luiz@luiz.com"
+        }
+    ]
+}
