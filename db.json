@@ -1,5 +1,5 @@
 {
-    "repo_table": [
+    "repos": [
         {
             "id": 1,
             "name": "udeyou",
@@ -13,7 +13,7 @@
             "url": "another-mocked-url"
         }
     ],
-    "user_table": [
+    "users": [
         {
             "id": 1,
             "name": "pedro",
