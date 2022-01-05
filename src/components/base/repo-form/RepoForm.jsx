@@ -2,14 +2,19 @@ import { useContext, useState } from 'react';
 import RepoContext from '../../context/RepoContext';
 import '../repo/Repo.css';
 
-function RepoAdd() {
+function RepoForm( {show, holder} ) {
+
     const [text, setText] = useState('');
-    const {addRepo} = useContext(RepoContext);
+    const {addRepo, findRepo} = useContext(RepoContext);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        addRepo(text);
-
+        if (show == 'Adicionar') {
+            addRepo(text)
+        } else {
+            findRepo(text);
+        }
+        
         setText('');
     }
 
@@ -19,20 +24,20 @@ function RepoAdd() {
 
     return (
         <form 
-            className="d-flex justify-content-center"
-            onSubmit={handleSubmit}
-            >
-            <span className="text">Adicionar</span>
+        className="d-flex justify-content-center"
+        onSubmit={handleSubmit}
+        >
+            <span className="text">{show}</span>
             <input
                 onChange={handleChange}
                 id="search"
                 className="new-repo-input" 
-                placeholder="Encontre um repositório..."
+                placeholder={holder}
                 value={text} 
-             />
-            <button className="new-repo-button">Adicionar</button>
+            />
+            <button className="new-repo-button">{show}</button>
         </form>
     )
 }
 
-export default RepoAdd;
+export default RepoForm;

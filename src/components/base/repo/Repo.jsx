@@ -1,20 +1,25 @@
 import React from "react";
 import './Repo.css';
 import RepoList from './../repo-list/RepoList';
-import RepoAdd from "../repo-add/RepoAdd";
-import RepoSearch from "../repo-search/RepoSearch";
+import RepoForm from './../repo-form/RepoForm';
 
 function RepoComponent() {
 
     return(
         <div className="container">
             <section id="sec" className="main">
-                <RepoSearch />
+                <RepoForm 
+                    show={'Pesquisar'}
+                    holder={'Encontre um repositório..'}
+                />
                 <RepoList />
             </section>
             
             <section className="bottom">
-                <RepoAdd />
+                <RepoForm 
+                    show={'Adicionar'}
+                    holder={'Insira a url de um repositório..'}
+                />
             </section>
         </div>
     );
