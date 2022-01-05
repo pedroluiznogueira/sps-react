@@ -3,7 +3,11 @@ import RepoContext from '../../context/RepoContext';
 import '../repo/Repo.css';
 
 function RepoList() {
-    const {repos, foundRepo, found} = useContext(RepoContext);
+    const {repos, foundRepo, found, deleteRepo} = useContext(RepoContext);
+
+    const handleClick = (id) => {
+        deleteRepo(id);
+    }
 
     if (found) {
         console.log(foundRepo)
@@ -46,7 +50,7 @@ function RepoList() {
                         </span>
                     </div>
                     <div className="right-block">
-                    <i className="material-icons">delete</i>
+                    <i onClick={(id) => {handleClick(repo.id)}} className="material-icons">delete</i>
                     </div>
                 </li>
                 ))}

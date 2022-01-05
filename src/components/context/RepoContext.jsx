@@ -42,13 +42,24 @@ export const RepoProvider = ( {children} ) => {
         setFoundRepo(data);
     }
 
+    const deleteRepo = async (id) => {
+        if (window.confirm('Are you sure you want to delete it ?')) {
+            const response = await fetch(`/repos/${id}`, {
+                method: 'DELETE'
+            });
+            const data = await response.json();
+            setRepos(repos.filter((repo) => repo.id !== id));
+        }
+    }
+
     return(
         <RepoContext.Provider value={{
             repos: repos,
             foundRepo: foundRepo,
             found: found,
             addRepo: addRepo,
-            findRepo: findRepo
+            findRepo: findRepo,
+            deleteRepo: deleteRepo
         }}>
             {children}
         </RepoContext.Provider>

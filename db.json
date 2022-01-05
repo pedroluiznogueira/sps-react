@@ -1,40 +1,22 @@
 {
   "repos": [
     {
-      "id": 1,
-      "name": "udeyou",
-      "owner": "pedroluiznogueira",
-      "url": "mocked-url"
-    },
-    {
-      "id": 2,
-      "name": "exchange-office",
-      "owner": "pedroluiznogueira",
-      "url": "another-mocked-url"
-    },
-    {
       "name": "udeyou",
       "owner": "pedroluiznogueira",
       "url": "https://github.com/pedroluiznogueira/udeyou",
-      "id": 3
+      "id": 1
     },
     {
       "name": "xmb",
       "owner": "pedroluiznogueira",
       "url": "https://github.com/pedroluiznogueira/xmb",
-      "id": 4
+      "id": 2
     },
     {
       "name": "sps-react",
       "owner": "pedroluiznogueira",
       "url": "https://github.com/pedroluiznogueira/sps-react",
-      "id": 5
-    },
-    {
-      "name": "sps-java",
-      "owner": "pedroluiznogueira",
-      "url": "https://github.com/pedroluiznogueira/sps-java",
-      "id": 6
+      "id": 3
     }
   ],
   "users": [
