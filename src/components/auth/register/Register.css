@@ -41,6 +41,10 @@
 /* create account link */
 
 .form-group-question {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
     font-size: 15px;
     cursor: pointer;
     color:rgb(98, 98, 98);
