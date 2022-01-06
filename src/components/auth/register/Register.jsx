@@ -22,6 +22,7 @@ function Register() {
         user.email = emailText;
         user.password = passwordText;
         register(user);
+        
         setNameText('');
         setEmailText('');
         setPasswordText('');
