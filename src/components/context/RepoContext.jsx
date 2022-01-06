@@ -13,42 +13,73 @@ export const RepoProvider = ( {children} ) => {
     }, []);
 
     const fetchRepos = async () => {
-        const response = await fetch('/repos');
+        const user = JSON.parse(window.sessionStorage.getItem('logged'));
+        const token = window.sessionStorage.getItem('token');
+
+        const response = await fetch(`http://localhost:3000/repos/find/all/${user._id}`, {
+            method: 'GET',
+            headers: { 
+                'Authorization': 'Bearer ' + token,
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        });
         const data = await response.json();
-        console.log(data);
-        setRepos(data);
-    }
+        setRepos(data.repos);
+    };
 
     const addRepo = async (repoUrl) => {
-        const newRepo = extractNameAndOwner(repoUrl);
-        const response = await fetch('/repos', {
+        const user = JSON.parse(window.sessionStorage.getItem('logged'));
+        const token = window.sessionStorage.getItem('token');
+        const reposAdd = extractNameAndOwner(repoUrl);
+        
+        const response = await fetch(`http://localhost:3000/repos/add/${user._id}`, {
             method: 'POST',
             headers: { 
+                'Authorization': 'Bearer ' + token,
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(newRepo)
+            body: JSON.stringify(reposAdd)
         });
         const data = await response.json();
-        console.log(data);
-        setRepos([data, ...repos]);
-    }
+        setRepos([data.repo, ...repos]);
+        
+    };
 
     const findRepo = async (repoName) => {
-        const response = await fetch(`/repos?name=${repoName}`);
+        const user = JSON.parse(window.sessionStorage.getItem('logged'));
+        const token = window.sessionStorage.getItem('token');
+
+        const response = await fetch(`http://localhost:3000/repos/find/by/name/${repoName}/by/id/${user._id}`,{
+            method: 'GET',
+            headers: { 
+                'Authorization': 'Bearer ' + token,
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        });
         const data = await response.json();
-        console.log(data);
         setFound(true);
-        setFoundRepo(data);
+        setFoundRepo(data.foundRepo);
     }
 
-    const deleteRepo = async (id) => {
+    const deleteRepo = async (repoName) => {
+        const user = JSON.parse(window.sessionStorage.getItem('logged'));
+        const token = window.sessionStorage.getItem('token');
+
         if (window.confirm('Are you sure you want to delete it ?')) {
-            const response = await fetch(`/repos/${id}`, {
-                method: 'DELETE'
+                                        // /delete/by/name/:name/by/id/:id
+            const response = await fetch(`http://localhost:3000/repos/delete/by/name/${repoName}/by/id/${user._id}`,{
+                method: 'DELETE',
+                headers: { 
+                    'Authorization': 'Bearer ' + token,
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
             });
             const data = await response.json();
-            setRepos(repos.filter((repo) => repo.id !== id));
+            setRepos(repos.filter((repo) => repo.name !== data.repo.name));
         }
     }
 

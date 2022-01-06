@@ -27,7 +27,7 @@
     "eject": "react-scripts eject",
     "server": "json-server --watch db.json --port 5000",
     "dev": "concurrently  \"npm run server\"  \"npm start\"",
-    "b": "git push origin feature/user-auth-data"
+    "b": "git push origin feature/api-request-needs"
   },
   "eslintConfig": {
     "extends": [
