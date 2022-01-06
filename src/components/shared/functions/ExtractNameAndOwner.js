@@ -17,7 +17,9 @@ export function extractNameAndOwner(repoUrl) {
                     newRepo.name = subRepoUrl.slice(j + 1, subRepoUrl.length);
                     newRepo.owner = subRepoUrl.slice(0, j);
                     newRepo.url = repoUrl;
-                    return newRepo;
+                    const newRepoList = [];
+                    newRepoList.push(newRepo);
+                    return { repos: newRepoList };
                 }
             }
             counter = 0;

@@ -20,18 +20,22 @@ export const RepoProvider = ( {children} ) => {
     }
 
     const addRepo = async (repoUrl) => {
-        const newRepo = extractNameAndOwner(repoUrl);
-        const response = await fetch('/repos', {
+        const user = JSON.parse(window.sessionStorage.getItem('logged'));
+        const token = window.sessionStorage.getItem('token');
+        const repos = extractNameAndOwner(repoUrl);
+        
+        const response = await fetch(`http://localhost:3000/repos/add/${user._id}`, {
             method: 'POST',
             headers: { 
+                'Authorization': 'Bearer ' + token,
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(newRepo)
+            body: JSON.stringify(repos)
         });
         const data = await response.json();
         console.log(data);
-        setRepos([data, ...repos]);
+        setRepos([data.repo, ...repos]);
     }
 
     const findRepo = async (repoName) => {
