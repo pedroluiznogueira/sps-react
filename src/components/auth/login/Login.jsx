@@ -74,7 +74,7 @@ function Login() {
                         </NavLink>
                     </small>
                 </div>
-                <button type="submit">Entrar</button>
+                <button className="btn" type="submit">Entrar</button>
             </form>
         </div>
     );

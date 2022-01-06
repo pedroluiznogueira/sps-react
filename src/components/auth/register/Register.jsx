@@ -88,7 +88,7 @@ function Register() {
                         </NavLink>
                     </small>
                 </div>
-                <button type="submit">Criar conta</button>
+                <button className="btn" type="submit">Criar conta</button>
             </form>
         </div>
     );
