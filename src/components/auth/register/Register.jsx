@@ -18,6 +18,7 @@ function Register() {
     const [isLoading, setIsLoading] = useState(false);
     const { register } = useContext(UserContext);
 
+    // setTimeout used only to simulate server response
     const handleSubmit = (e) => {
         e.preventDefault();
         user.name = nameText;

@@ -16,6 +16,7 @@ function Login() {
     const [isLoading, setIsLoading] = useState(false);
     const { authenticate } = useContext(UserContext);
 
+    // setTimeout used only to simulate server response
     const handleSubmit = (e) => {
         e.preventDefault();
         user.email = emailText;

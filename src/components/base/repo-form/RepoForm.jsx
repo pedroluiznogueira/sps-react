@@ -8,6 +8,7 @@ function RepoForm( {show, holder} ) {
     const {addRepo, findRepo} = useContext(RepoContext);
     const [isLoading, setIsLoading] = useState(false);
 
+    // setTimeout used only to simulate server response
     const handleSubmit = (e) => {
         e.preventDefault();
         setIsLoading(true);
