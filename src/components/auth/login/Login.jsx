@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { NavLink, useNavigate } from "react-router-dom";
 import UserContext from '../../context/UserContext';
 import './Login.css';
+import spinner from '../../shared/assets/spinner.gif';
 
 const user = {
     email: '',
@@ -12,18 +13,35 @@ function Login() {
     const navigate = useNavigate();
     const [emailText, setEmailText] = useState('');
     const [passwordText, setPasswordText] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
     const { authenticate } = useContext(UserContext);
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         user.email = emailText;
         user.password = passwordText;
-        const data = await authenticate(user);
-        if (data.user.email === user.email) {
-            window.sessionStorage.setItem('token', data.token);
-            window.sessionStorage.setItem('logged', JSON.stringify(data.user));
-            navigate('/app', { replace: true });
-        }
+        
+        setIsLoading(true);
+        const promise = authenticate(user);
+        promise
+            .then(
+                (data) => {
+                    setTimeout(() => {
+                        setIsLoading(false);
+                        if (data.user.email === user.email) {
+                            window.sessionStorage.setItem('token', data.token);
+                            window.sessionStorage.setItem('logged', JSON.stringify(data.user));
+                            navigate('/app', { replace: true });
+                        }
+                    }, 2000)
+                }
+            )
+            .catch(
+                setTimeout(() => {
+                    alert('something went wrong');
+                    setIsLoading(false);
+                }, 2000)
+            );
         
         setEmailText('');
         setPasswordText('');
@@ -73,7 +91,14 @@ function Login() {
                         </NavLink>
                     </small>
                 </div>
-                <button className="btn" type="submit">Entrar</button>
+                {
+                    isLoading ?
+                    <img 
+                        src={spinner}
+                        style={{width: '50px'}}
+                    /> : 
+                    <button className="btn" type="submit">Entrar</button>
+                }
             </form>
         </div>
     );

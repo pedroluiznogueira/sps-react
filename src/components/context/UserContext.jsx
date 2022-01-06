@@ -14,6 +14,7 @@ export const UserProvider = ( {children} ) => {
             body: JSON.stringify(user)
         });
         const data = await response.json();
+        return data;
     }
 
     const authenticate = async (user) => {
