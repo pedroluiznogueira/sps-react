@@ -31,7 +31,7 @@ export const RepoProvider = ( {children} ) => {
     const addRepo = async (repoUrl) => {
         const user = JSON.parse(window.sessionStorage.getItem('logged'));
         const token = window.sessionStorage.getItem('token');
-        const repos = extractNameAndOwner(repoUrl);
+        const reposAdd = extractNameAndOwner(repoUrl);
         
         const response = await fetch(`http://localhost:3000/repos/add/${user._id}`, {
             method: 'POST',
@@ -40,11 +40,11 @@ export const RepoProvider = ( {children} ) => {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(repos)
+            body: JSON.stringify(reposAdd)
         });
         const data = await response.json();
-        console.log(data);
         setRepos([data.repo, ...repos]);
+        
     };
 
     const findRepo = async (repoName) => {
@@ -64,13 +64,22 @@ export const RepoProvider = ( {children} ) => {
         setFoundRepo(data.foundRepo);
     }
 
-    const deleteRepo = async (id) => {
+    const deleteRepo = async (repoName) => {
+        const user = JSON.parse(window.sessionStorage.getItem('logged'));
+        const token = window.sessionStorage.getItem('token');
+
         if (window.confirm('Are you sure you want to delete it ?')) {
-            const response = await fetch(`/repos/${id}`, {
-                method: 'DELETE'
+                                        // /delete/by/name/:name/by/id/:id
+            const response = await fetch(`http://localhost:3000/repos/delete/by/name/${repoName}/by/id/${user._id}`,{
+                method: 'DELETE',
+                headers: { 
+                    'Authorization': 'Bearer ' + token,
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
             });
             const data = await response.json();
-            setRepos(repos.filter((repo) => repo.id !== id));
+            setRepos(repos.filter((repo) => repo.name !== data.repo.name));
         }
     }
 

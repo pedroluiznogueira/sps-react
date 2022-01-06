@@ -5,8 +5,8 @@ import '../repo/Repo.css';
 function RepoList() {
     const {repos, foundRepo, found, deleteRepo} = useContext(RepoContext);
 
-    const handleClick = (id) => {
-        deleteRepo(id);
+    const handleClick = (name) => {
+        deleteRepo(name);
     }
 
     if (found) {
@@ -24,7 +24,7 @@ function RepoList() {
                             </span>
                         </div>
                         <div className="right-block">
-                        <i className="material-icons">delete</i>
+                        <i onClick={(name) => {handleClick(foundRepo.name)}} className="material-icons">delete</i>
                         </div>
                     </li>
                 </ul>
@@ -36,18 +36,18 @@ function RepoList() {
         <div className="repos-list">
         <h3>Repositórios</h3>
             <ul>
-                {repos.map((repo) => (
+                {repos.map((repo, index) => (
                 <li>
                     <div className="left-block">
                         <span className="repo-owner">
-                            <b>{repo.name}</b>
+                            <b key={index}>{repo.name}</b>
                         </span>
                         <span className="repo-name">
                             {repo.owner}
                         </span>
                     </div>
                     <div className="right-block">
-                    <i onClick={(id) => {handleClick(repo.id)}} className="material-icons">delete</i>
+                    <i onClick={(name) => {handleClick(repo.name)}} className="material-icons">delete</i>
                     </div>
                 </li>
                 ))}

@@ -26,7 +26,6 @@ export const UserProvider = ( {children} ) => {
             body: JSON.stringify(user)
         });
         const data = await response.json();
-        console.log(data);
         return data;
     }
 
