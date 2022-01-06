@@ -10,26 +10,23 @@ function RepoList() {
     }
 
     if (found) {
-        console.log(foundRepo)
         return (
             <div className="repos-list">
             <h3>Repositórios</h3>
                 <ul>
-                    {foundRepo.map((fr) => (
-                        <li>
-                            <div className="left-block">
-                                <span className="repo-owner">
-                                    <b>{fr.name}</b>
-                                </span>
-                                <span className="repo-name">
-                                    {fr.owner}
-                                </span>
-                            </div>
-                            <div className="right-block">
-                            <i className="material-icons">delete</i>
-                            </div>
-                        </li>
-                    ))}
+                    <li>
+                        <div className="left-block">
+                            <span className="repo-owner">
+                                <b>{foundRepo.name}</b>
+                            </span>
+                            <span className="repo-name">
+                                {foundRepo.owner}
+                            </span>
+                        </div>
+                        <div className="right-block">
+                        <i className="material-icons">delete</i>
+                        </div>
+                    </li>
                 </ul>
             </div> 
         );
