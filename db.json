@@ -1,12 +1,6 @@
 {
   "repos": [
     {
-      "name": "udeyou",
-      "owner": "pedroluiznogueira",
-      "url": "https://github.com/pedroluiznogueira/udeyou",
-      "id": 1
-    },
-    {
       "name": "xmb",
       "owner": "pedroluiznogueira",
       "url": "https://github.com/pedroluiznogueira/xmb",
@@ -29,18 +23,38 @@
       "owner": "pedroluiznogueira",
       "url": "https://github.com/pedroluiznogueira/sps-ng",
       "id": 5
+    },
+    {
+      "name": "udeyou",
+      "owner": "pedroluiznogueira",
+      "url": "https://github.com/pedroluiznogueira/udeyou",
+      "id": 6
     }
   ],
   "users": [
     {
       "id": 1,
       "name": "pedro",
-      "email": "pedro@pedro.com"
+      "email": "pedro@pedro.com",
+      "password": "pedro"
     },
     {
       "id": 2,
       "name": "luiz",
-      "email": "luiz@luiz.com"
+      "email": "luiz@luiz.com",
+      "password": "luiz"
+    },
+    {
+      "name": "dsdsds",
+      "email": "pedro@pedro.com",
+      "password": "pedro",
+      "id": 3
+    },
+    {
+      "name": "ssss",
+      "email": "ssssss@sfsfs",
+      "password": "sfsfsfs",
+      "id": 4
     }
   ]
 }

@@ -20,7 +20,7 @@ export const RepoProvider = ( {children} ) => {
     }
 
     const addRepo = async (repoUrl) => {
-        const newRepo = extractNameAndOwner(repoUrl)
+        const newRepo = extractNameAndOwner(repoUrl);
         const response = await fetch('/repos', {
             method: 'POST',
             headers: { 
