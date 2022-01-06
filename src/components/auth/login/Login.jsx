@@ -19,12 +19,11 @@ function Login() {
         user.email = emailText;
         user.password = passwordText;
         const data = await authenticate(user);
-        data.map((resp) => {
-            if (resp.email === user.email) {
-                window.sessionStorage.setItem('mockedToken', 'mockedToken');
-                navigate('/app', { replace: true });                
-            }
-        })
+        if (data.user.email === user.email) {
+            window.sessionStorage.setItem('token', data.token);
+            window.sessionStorage.setItem('logged', JSON.stringify(data.user));
+            navigate('/app', { replace: true });
+        }
         
         setEmailText('');
         setPasswordText('');
