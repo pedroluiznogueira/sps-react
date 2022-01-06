@@ -41,7 +41,6 @@ function Register() {
             )
             .catch(
                 setTimeout(() => {
-                    alert('something went wrong');
                     setIsLoading(false);
                 }, 2000)
             );

@@ -22,7 +22,6 @@ function RepoForm( {show, holder} ) {
             )
             .catch(
                 setTimeout(() => {
-                    alert('something went wrong');
                     setIsLoading(false);
                 }, 2000)
             );
@@ -36,7 +35,6 @@ function RepoForm( {show, holder} ) {
             )
             .catch(
                 setTimeout(() => {
-                    alert('something went wrong');
                     setIsLoading(false);
                 }, 2000)
             );
