@@ -44,6 +44,7 @@ export const RepoProvider = ( {children} ) => {
         });
         const data = await response.json();
         setRepos([data.repo, ...repos]);
+        return data;
         
     };
 
@@ -62,6 +63,7 @@ export const RepoProvider = ( {children} ) => {
         const data = await response.json();
         setFound(true);
         setFoundRepo(data.foundRepo);
+        return data;
     }
 
     const deleteRepo = async (repoName) => {

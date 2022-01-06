@@ -1,17 +1,45 @@
 import { useContext, useState } from 'react';
 import RepoContext from '../../context/RepoContext';
 import '../repo/Repo.css';
+import spinner from '../../shared/assets/spinner.gif';
 
 function RepoForm( {show, holder} ) {
     const [text, setText] = useState('');
     const {addRepo, findRepo} = useContext(RepoContext);
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setIsLoading(true);
+
         if (show == 'Adicionar') {
-            addRepo(text)
+            const promise = addRepo(text);
+            promise
+            .then(
+                (data) => {
+                    setTimeout(() => {setIsLoading(false)}, 2000)
+                }
+            )
+            .catch(
+                setTimeout(() => {
+                    alert('something went wrong');
+                    setIsLoading(false);
+                }, 2000)
+            );
         } else {
-            findRepo(text);
+            const promise = findRepo(text);
+            promise
+            .then(
+                (data) => {
+                    setTimeout(() => {setIsLoading(false)}, 2000)
+                }
+            )
+            .catch(
+                setTimeout(() => {
+                    alert('something went wrong');
+                    setIsLoading(false);
+                }, 2000)
+            );
         }
         
         setText('');
@@ -34,7 +62,14 @@ function RepoForm( {show, holder} ) {
                 placeholder={holder}
                 value={text} 
             />
-            <button className="new-repo-button">{show}</button>
+            {
+                isLoading ?
+                <img 
+                    src={spinner}
+                    style={{width: '30px'}}
+                /> : 
+                <button className="new-repo-button">{show}</button>
+            }   
         </form>
     )
 }
