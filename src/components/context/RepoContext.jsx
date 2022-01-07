@@ -16,7 +16,7 @@ export const RepoProvider = ( {children} ) => {
         const user = JSON.parse(window.sessionStorage.getItem('logged'));
         const token = window.sessionStorage.getItem('token');
 
-        const response = await fetch(`http://localhost:3000/repos/find/all/${user._id}`, {
+        const response = await fetch(`/repos/find/all/${user._id}`, {
             method: 'GET',
             headers: { 
                 'Authorization': 'Bearer ' + token,
@@ -33,7 +33,7 @@ export const RepoProvider = ( {children} ) => {
         const token = window.sessionStorage.getItem('token');
         const reposAdd = extractNameAndOwner(repoUrl);
         
-        const response = await fetch(`http://localhost:3000/repos/add/${user._id}`, {
+        const response = await fetch(`/repos/add/${user._id}`, {
             method: 'POST',
             headers: { 
                 'Authorization': 'Bearer ' + token,
@@ -52,7 +52,7 @@ export const RepoProvider = ( {children} ) => {
         const user = JSON.parse(window.sessionStorage.getItem('logged'));
         const token = window.sessionStorage.getItem('token');
 
-        const response = await fetch(`http://localhost:3000/repos/find/by/name/${repoName}/by/id/${user._id}`,{
+        const response = await fetch(`/repos/find/by/name/${repoName}/by/id/${user._id}`,{
             method: 'GET',
             headers: { 
                 'Authorization': 'Bearer ' + token,
@@ -71,8 +71,7 @@ export const RepoProvider = ( {children} ) => {
         const token = window.sessionStorage.getItem('token');
 
         if (window.confirm('Are you sure you want to delete it ?')) {
-                                        // /delete/by/name/:name/by/id/:id
-            const response = await fetch(`http://localhost:3000/repos/delete/by/name/${repoName}/by/id/${user._id}`,{
+            const response = await fetch(`/repos/delete/by/name/${repoName}/by/id/${user._id}`,{
                 method: 'DELETE',
                 headers: { 
                     'Authorization': 'Bearer ' + token,
