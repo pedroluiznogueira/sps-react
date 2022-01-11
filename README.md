@@ -35,7 +35,7 @@
 ## Proxy do projeto
 
 -> Este projeto está configurado para consumir a <a href="https://github.com/pedroluiznogueira/sps-node">API</a> rodando em <i>http://localhost:3000</i><br>
--> Caso queira rodar a <a href="https://github.com/pedroluiznogueira/sps-node">API</a> em outra porta sem ser a <b>3000</b> siga os seguintes passos
+-> Caso você rode a <a href="https://github.com/pedroluiznogueira/sps-node">API</a> em outra porta sem ser a <b>3000</b> siga os seguintes passos
 
 1. Abra o arquivo <b>package.json</b>
 2. Nele está configurado o proxy do projeto em <b>"proxy"</b>
